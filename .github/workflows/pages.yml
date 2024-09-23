@@ -18,6 +18,7 @@ jobs:
       id-token: write
     steps:
     - uses: actions/checkout@v4
+    - run: sudo apt-get install xsltproc
     - run: xsltproc --param id "'https://$(basename $GITHUB_REPOSITORY)/'" --param updated "'$(date -u -Iseconds)'" style.xsl blog.xml
     - uses: actions/upload-pages-artifact@v3
       with:
