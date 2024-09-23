@@ -87,7 +87,7 @@
         id="style"
         version="1.0"
         xmlns:atom="http://www.w3.org/2005/Atom">
-      <output method="xml" version="1.0" encoding="utf-8" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+      <output method="xml" version="1.0" encoding="utf-8" />
       <variable name="xhtml" select="'http://www.w3.org/1999/xhtml'" />
       <template match="/">
         <element name="html" namespace="{$xhtml}">
