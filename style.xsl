@@ -3,6 +3,7 @@
     id="style"
     version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
     xmlns="https://www.w3schools.com/w3style.xsl">
   <xsl:output method="xml" version="1.0" encoding="utf-8" />
   <xsl:namespace-alias stylesheet-prefix="#default" result-prefix="xsl"/>
@@ -41,14 +42,14 @@
     </xsl:element>
   </xsl:template>
   <xsl:template match="entry">
-    <xsl:element name="id" namespace="{$atom}">
-      <xsl:value-of select="$id" />
-      <xsl:text>#</xsl:text>
-      <xsl:value-of select=".//@create" />
-      <xsl:text>-</xsl:text>
-      <xsl:value-of select=".//@slug" />
-    </xsl:element>
     <xsl:element name="entry" namespace="{$atom}">
+      <xsl:element name="id" namespace="{$atom}">
+        <xsl:value-of select="$id" />
+        <xsl:text>#</xsl:text>
+        <xsl:value-of select=".//@created" />
+        <xsl:text>-</xsl:text>
+        <xsl:value-of select=".//@slug" />
+      </xsl:element>
       <xsl:element name="title" namespace="{$atom}">
         <xsl:value-of select=".//@title" />
       </xsl:element>
@@ -67,13 +68,13 @@
       </xsl:element>
       <xsl:element name="content" namespace="{$atom}">
         <xsl:attribute name="type">xhtml</xsl:attribute>
-        <xsl:copy-of select=".//*" />
+        <xsl:copy-of select=".//xhtml:div" />
       </xsl:element>
       <xsl:element name="link" namespace="{$atom}">
         <xsl:attribute name="rel">alternate</xsl:attribute>
         <xsl:attribute name="href">
           <xsl:text>#</xsl:text>
-          <xsl:value-of select=".//@create" />
+          <xsl:value-of select=".//@created" />
           <xsl:text>-</xsl:text>
           <xsl:value-of select=".//@slug" />
         </xsl:attribute>
@@ -85,7 +86,6 @@
     <stylesheet
         id="style"
         version="1.0"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:atom="http://www.w3.org/2005/Atom">
       <output method="xml" version="1.0" encoding="utf-8" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
       <variable name="xhtml" select="'http://www.w3.org/1999/xhtml'" />
@@ -245,7 +245,7 @@ body { --fg-color: #386; --bg-color: #FFF; color: var(--fg-color); background: #
             </attribute>
             <value-of select="substring-before(.//atom:published/text(), 'T')" />
           </element>
-          <copy-of select=".//atom:content/xhtml:div/*" />
+          <copy-of select=".//atom:content/xhtml:div" />
         </element>
         <element name="h1" namespace="{$xhtml}">
           <element name="a" namespace="{$xhtml}">
