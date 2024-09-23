@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blog title="套壳练习生的主页" author="套壳练习生" copy="2024">
+  <about>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>精通C/C++，沉迷程序语言设计与实现，数字电路设计与仿真和操作系统开发不能自拔，没空参加OI，请勿推荐。</p>
+      <p>正在制作自主研发微内核操作系统系列视频，有兴趣请<a href="https://space.bilibili.com/3546740412123217/channel/seriesdetail?sid=4385927">前往B站观看</a>。</p>
+    </div>
+  </about>
+  <entry title="开设我的主页" slug="homepage" created="2024-09-23" updated="2024-09-23">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>第一期视频已经发出去了，总感觉缺点什么。在热心网友的建议下，我决定把代码上传到GitHub，顺便开设个人主页。</p>
+      <p>不过我不会Java，写不了Web前端。只能因陋就简了。凑合看吧。</p>
+    </div>
+  </entry>
+</blog>
