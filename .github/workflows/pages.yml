@@ -19,7 +19,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: sudo apt-get install xsltproc
-    - run: mkdir output && xsltproc --param id "'https://$(basename $GITHUB_REPOSITORY)/'" --param updated "'$(date -u -Iseconds)'" style.xsl blog.xml > output/index.xml
+    - run: |
+        mkdir -p output
+
+        xsltproc --param id "'https://$(basename $GITHUB_REPOSITORY)/'" --param updated "'$(date -u -Iseconds)'" index.xsl blog.xml > output/index.xml
+
+        xsltproc style.xsl blog.xml > output/style.xsl
+
     - uses: actions/upload-pages-artifact@v3
       with:
         path: output
